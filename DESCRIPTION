@@ -1,0 +1,18 @@
+Package: prioGene
+Type: Package
+Title: Candidate gene prioritization for non-communicable diseases based on functional information
+Version: 0.99.0
+Authors@R: person(given = "Erqiang", family = "Hu", email = "13766876214@163.com", role  = c("aut", "cre"))
+biocViews: GraphAndNetwork,  FunctionalGenomics, Genetics, Network
+Description: This package can be used to prioritize diseases candidate genes with the network
+    and functional information.
+Depends: R (>= 3.6.0)
+License: Artistic-2.0
+Encoding: UTF-8
+LazyData: true
+RoxygenNote: 6.1.1
+Suggests: 
+    knitr,
+    rmarkdown,
+    testthat
+VignetteBuilder: knitr
