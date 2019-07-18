@@ -20,14 +20,17 @@ knitr::opts_chunk$set(
 
 
 # Introduction
-Prioritizing candidate genes for complex noncommunicable diseases is critical to understanding their mechanisms and developing better diagnostics and treatments.
+Prioritizing candidate genes for complex noncommunicable diseases
+is critical to understanding their mechanisms and developing better
+diagnostics and treatments.
 
-With the emergence of  a great amount of biological data and molecular changes in
-the process of non-communicable diseases, more and more studies have been
-carried out on the identification and sequencing of disease-related genes by
-using the calculation method of protein-protein interaction (PPI) network.
-In gene sequencing methods, the topological features of PPI networks are often
-used, such as ToppNet (https://toppGene.cchmc.org)and Razaghi Moghadam's gene
+With the emergence of  a great amount of biological data and molecular
+changes inthe process of non-communicable diseases, more and more studies
+have beencarried out on the identification and sequencing of
+disease-related genes by using the calculation method of protein-protein
+interaction (PPI) network. In gene sequencing methods, the topological
+features of PPI networks are often used, such as ToppNet
+(https://toppGene.cchmc.org)and Razaghi Moghadam's gene
 sequencing method.
 
 In this study, a candidate gene prioritization method was proposed for
