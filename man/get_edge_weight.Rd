@@ -4,10 +4,12 @@
 \alias{get_edge_weight}
 \title{Title weight edge}
 \usage{
-get_edge_weight(net_disease_term)
+get_edge_weight(net_disease_term, terms_mat)
 }
 \arguments{
 \item{net_disease_term}{GO terms for each pair of nodes in the network}
+
+\item{terms_mat}{result of get_term_mat()}
 }
 \value{
 a matrix
@@ -16,5 +18,5 @@ a matrix
 Title weight edge
 }
 \examples{
-get_edge_weight(net_disease_term)
+get_edge_weight(net_disease_term,terms_mat)
 }

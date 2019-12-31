@@ -116,7 +116,7 @@ node_weight <- get_node_weight(genes_mat)
 #' net_disease_term: GO terms for each pair of nodes in the network
 #'
 #' return: a matrix
-edge_weight <- get_edge_weight(net_disease_term)
+edge_weight <- get_edge_weight(net_disease_term,terms_mat)
 
 
 #Q is the disease risk transition probability matrix, 

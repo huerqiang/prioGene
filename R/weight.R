@@ -17,12 +17,14 @@ get_node_weight <- function(genes_mat) {
 #'
 #' @param net_disease_term GO terms for each pair of nodes in the network
 #'
+#' @param terms_mat result of get_term_mat()
+#'
 #' @return a matrix
 #' @export
 #'
 #' @examples
-#' get_edge_weight(net_disease_term)
-get_edge_weight <- function(net_disease_term) {
+#' get_edge_weight(net_disease_term,terms_mat)
+get_edge_weight <- function(net_disease_term, terms_mat) {
     edge_weight <- cbind(net_disease_term[, seq_len(2)], "gaga")
     
     for (i in seq_len(dim(edge_weight)[1])) {
