@@ -1,12 +1,12 @@
 
-
+# prioGene
 | title    | author     |
 | -------- | ---------- |
 | prioGene | Erqiang Hu |
 
 
 
-# Introduction
+## Introduction
 
 Prioritizing candidate genes for complex noncommunicable diseases is critical to understanding their mechanisms and developing better diagnostics and treatments.
 
@@ -24,7 +24,7 @@ The prioritization of candidate genes was performed based on disease risk scores
 
 --------
 
-# Installation
+## Installation
 To install this package, start R (version "3.6") and enter:
 
 ```{r, eval=FALSE, message=FALSE, warning=FALSE}
@@ -35,7 +35,7 @@ devtools::install_github("huerqiang/prioGene")
 
 -------
 
-# Common operations on prioGene
+## Common operations on prioGene
 ```{r}
 library(prioGene)
 ```
@@ -109,7 +109,7 @@ result <- get_R(node_weight, net_disease_term, bet = 0.5, R_0 = R_0, threshold =
 
 ------
 
-# Session information
+## Session information
 
 ```{r}
 sessionInfo()
