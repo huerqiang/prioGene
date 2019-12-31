@@ -3,11 +3,6 @@ title: "prioGene"
 output: rmarkdown::html_vignette
 author: "Erqiang Hu"
 date: "Revised: 17 July, 2019"
-vignette: >
-    %\VignetteIndexEntry{my-vignete}
-    %\VignetteEngine{knitr::rmarkdown}
-    %\VignetteEncoding{UTF-8}
----
 
 ```{r, include = FALSE}
 knitr::opts_chunk$set(
