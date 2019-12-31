@@ -28,9 +28,9 @@ get_edge_weight <- function(net_disease_term) {
     for (i in seq_len(dim(edge_weight)[1])) {
         aa <- unlist(strsplit(net_disease_term[i, 3], ","))
         bb <- terms_mat[aa, 3]
-        edge_weight[i, 3] <- sum(1/as.numeric(bb))
-        edge_weight_haha <- edge_weight
+        edge_weight[i, 3] <- sum(1/as.numeric(bb))     
     }
+    edge_weight_haha <- edge_weight
     for (i in seq_len(dim(edge_weight_haha)[1])) {
         edge_weight_haha[i,seq_len(2)] <- sort(edge_weight_haha[i,seq_len(2)])
     }
