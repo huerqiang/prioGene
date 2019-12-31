@@ -4,16 +4,16 @@
 \alias{get_R}
 \title{Title get the final genetic disease risk scores}
 \usage{
-get_R(Q, bet, R_0, node_weight, threshold = 10^(-9))
+get_R(node_weight, net_disease_term, bet, R_0, threshold = 10^(-9))
 }
 \arguments{
-\item{Q}{the disease risk transition probability matrix}
+\item{node_weight}{a matrix, genes and their weights}
+
+\item{net_disease_term}{GO terms for each pair of nodes in the network}
 
 \item{bet}{a parameter to measure the importance of genes and interactions}
 
 \item{R_0}{the vector of initial disease risk scores for all genes}
-
-\item{node_weight}{a matrix, genes and their weights}
 
 \item{threshold}{a threshold for terminating iterations}
 }
@@ -24,5 +24,10 @@ a matrix
 Title get the final genetic disease risk scores
 }
 \examples{
-get_R(Q,0.5,R_0,node_weight,10^(-9))
+net_disease <- deal_net(net,dise_gene)
+genes_mat <- get_gene_mat(net_disease,GO_human)
+node_weight <- get_node_weight(genes_mat)
+net_disease_term <- get_net_disease_term(genes_mat,net_disease)
+R_0<- get_R_0(dise_gene,node_weight,f=1)
+result <- get_R(node_weight, net_disease_term, bet = 0.5, R_0 = R_0, threshold = 10^(-9))
 }

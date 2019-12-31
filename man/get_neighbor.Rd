@@ -17,6 +17,3 @@ a vector of gene
 \description{
 Title get neighbor of a node
 }
-\examples{
-get_neighbor('LPL',net_disease)
-}

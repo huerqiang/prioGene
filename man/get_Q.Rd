@@ -4,14 +4,16 @@
 \alias{get_Q}
 \title{Title get the disease risk transition probability matrix}
 \usage{
-get_Q()
+get_Q(node_weight, net_disease_term)
+}
+\arguments{
+\item{node_weight}{a matrix, genes and their weights}
+
+\item{net_disease_term}{GO terms for each pair of nodes in the network}
 }
 \value{
 a matrix
 }
 \description{
 Title get the disease risk transition probability matrix
-}
-\examples{
-get_Q()
 }

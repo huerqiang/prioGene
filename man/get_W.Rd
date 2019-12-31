@@ -17,6 +17,3 @@ a number
 \description{
 Title
 }
-\examples{
-get_W('hh','dd')
-}
