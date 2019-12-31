@@ -98,7 +98,6 @@ R_0<- get_R_0(dise_gene,node_weight,f=1)
 
 ```{r}
 #get the result the output number is the number of iterations
-#' Q:  the disease risk transition probability matrix
 #' bet:  a parameter to measure the importance of genes and interactions
 #' R_0: the vector of initial disease risk scores for all genes
 #' node_weight: a matrix, genes and their weights
@@ -115,4 +114,6 @@ result <- get_R(node_weight, net_disease_term, bet = 0.5, R_0 = R_0, threshold =
 ```{r}
 sessionInfo()
 ```
+
+
 
