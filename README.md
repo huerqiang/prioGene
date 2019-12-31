@@ -3,14 +3,6 @@ title: "prioGene"
 output: rmarkdown::html_vignette
 author: "Erqiang Hu"
 date: "Revised: 17 July, 2019"
-
-```{r, include = FALSE}
-knitr::opts_chunk$set(
-    collapse = TRUE,
-    comment = "#>"
-)
-```
-
 --------
 
 
@@ -74,10 +66,7 @@ library(prioGene)
 #' dise_gene: a matrix with one column of genes
 #'
 #' return: a matrix
-head(net)
-head(dise_gene)
 net_disease <- deal_net(net,dise_gene)
-head(net_disease)
 ```
 ```{r}
 #Get a one-to-many matrix of gene and GO term
@@ -87,7 +76,6 @@ head(net_disease)
 #'
 #' return: a matrix
 genes_mat <- get_gene_mat(net_disease,GO_human)
-head(genes_mat)
 ```
 ```{r}
 #Get a one-to-many matrix of GO term and gene
@@ -96,7 +84,6 @@ head(genes_mat)
 #'
 #' return: a matrix
 terms_mat <- get_term_mat(net_disease,GO_human)
-head(terms_mat)
 ```
 ```{r}
 #Get the GO term for each pair of nodes in the network
@@ -105,7 +92,6 @@ head(terms_mat)
 #'
 #' return: a matrix
 net_disease_term <- get_net_disease_term(genes_mat,net_disease)
-head(net_disease_term)
 ```
 
 ```{r}
@@ -114,7 +100,6 @@ head(net_disease_term)
 #'
 #' return: a matrix
 node_weight <- get_node_weight(genes_mat)
-head(node_weight)
 ```
 ```{r}
 #weighting edge
@@ -122,14 +107,12 @@ head(node_weight)
 #'
 #' return: a matrix
 edge_weight <- get_edge_weight(net_disease_term,terms_mat)
-head(edge_weight)
 ```
 
 
 ```{r}
 #R—_0 is the vector of initial disease risk scores for all genes
 R_0<- get_R_0(dise_gene,node_weight,f=1)
-head(R_0)
 ```
 
 ```{r}
@@ -142,7 +125,6 @@ head(R_0)
 #'
 #' return: a matrix
 result <- get_R(node_weight, net_disease_term, bet = 0.5, R_0 = R_0, threshold = 10^(-9))
-head(result)
 ```
 
 ------
