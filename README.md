@@ -1,53 +1,30 @@
----
-title: "prioGene"
-output: rmarkdown::html_vignette
-author: "Erqiang Hu"
-date: "Revised: 17 July, 2019"
-vignette: >
-    %\VignetteIndexEntry{my-vignete}
-    %\VignetteEngine{knitr::rmarkdown}
-    %\VignetteEncoding{UTF-8}
----
+
+
+| title    | author     |
+| -------- | ---------- |
+| prioGene | Erqiang Hu |
+
 
 
 # Introduction
-Prioritizing candidate genes for complex noncommunicable diseases is critical
-to understanding their mechanisms and developing better diagnostics and
-treatments.
 
-With the emergence of  a great amount of biological data and molecular changes
-in the process of non-communicable diseases, more and more studies have been
-carried out on the identification and sequencing of disease-related genes by
-using the calculation method of protein-protein interaction (PPI) network.
-In gene sequencing methods, the topological features of PPI networks are often
-used, such as ToppNet (https://toppGene.cchmc.org) and Razaghi Moghadam's gene
-sequencing method.
+Prioritizing candidate genes for complex noncommunicable diseases is critical to understanding their mechanisms and developing better diagnostics and treatments.
 
-In this study, a candidate gene prioritization method was proposed for
-non-communicable diseases considering disease risks transferred between genes
-in weighted disease PPI networks with weights for nodes and edges based on
-functional information.
+With the emergence of  a great amount of biological data and molecular changes in the process of non-communicable diseases, more and more studies have been carried out on the identification and sequencing of disease-related genes by using the calculation method of protein-protein interaction (PPI) network.
+In gene sequencing methods, the topological features of PPI networks are often used, such as ToppNet (https://toppGene.cchmc.org) and Razaghi Moghadam's gene sequencing method.
+
+In this study, a candidate gene prioritization method was proposed for non-communicable diseases considering disease risks transferred between genes in weighted disease PPI networks with weights for nodes and edges based on functional information.
 
 ## Construction of weighted disease PPI networks
-In biological networks, nodes represented genes and edges represented
-interactions between products of these genes. Weights for nodes (genes) and 
-edges (interactions) were calculated utilizing functional information
-represented by GO terms, respectively.
-For each gene g, the gene weight w g was defined as the proportion of
-GO terms annotated by g in all GO terms annotated by human genes.
-The interaction weight Wgh was defined as the functional similarity of
-two interacting genes g and h.
+In biological networks, nodes represented genes and edges represented interactions between products of these genes. Weights for nodes (genes) and  edges (interactions) were calculated utilizing functional information represented by GO terms, respectively.
+For each gene g, the gene weight w g was defined as the proportion of GO terms annotated by g in all GO terms annotated by human genes. The interaction weight Wgh was defined as the functional similarity of two interacting genes g and h.
 
 ## Prioritization of candidate genes
-The prioritization of candidate genes was performed based on disease risk scores
-of each gene obtained from an iteration process considering disease risks
-transferred between genes.
-
+The prioritization of candidate genes was performed based on disease risk scores of each gene obtained from an iteration process considering disease risks transferred between genes.
 
 --------
 
-
-#Installation
+# Installation
 To install this package, start R (version "3.6") and enter:
 
 ```{r, eval=FALSE, message=FALSE, warning=FALSE}
