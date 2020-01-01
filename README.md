@@ -1,5 +1,5 @@
+# <center>prioGene</center>
 
-# prioGene
 | title    | author     |
 | -------- | ---------- |
 | prioGene | Erqiang Hu |
