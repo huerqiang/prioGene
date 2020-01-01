@@ -2,21 +2,19 @@
 % Please edit documentation in R/deal_GO.R
 \name{get_gene_mat}
 \alias{get_gene_mat}
-\title{Title Get a one-to-many matrix of gene and GO term}
+\title{Get a one-to-many matrix of gene and GO term}
 \usage{
-get_gene_mat(net_disease, GO_human)
+get_gene_mat(net_disease, ...)
 }
 \arguments{
 \item{net_disease}{a disease related network, matrix}
-
-\item{GO_human}{a matrix, gene and GO terms}
 }
 \value{
 a matrix
 }
 \description{
-Title Get a one-to-many matrix of gene and GO term
+Get a one-to-many matrix of gene and GO term
 }
 \examples{
-get_gene_mat(net_disease,GO_human)
+get_gene_mat(net_disease)
 }

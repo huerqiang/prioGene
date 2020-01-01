@@ -53,18 +53,16 @@ net_disease <- deal_net(net,dise_gene)
 #Get a one-to-many matrix of gene and GO term
 #'
 #'net_disease: a disease related network, matrix
-#'GO_human: a matrix, gene and GO terms
 #'
 #' return: a matrix
-genes_mat <- get_gene_mat(net_disease,GO_human)
+genes_mat <- get_gene_mat(net_disease)
 ```
 ```{r}
 #Get a one-to-many matrix of GO term and gene
 #' net_disease: a disease related network, matrix
-#' GO_human: a matrix, gene and GO terms
 #'
 #' return: a matrix
-terms_mat <- get_term_mat(net_disease,GO_human)
+terms_mat <- get_term_mat(net_disease)
 ```
 ```{r}
 #Get the GO term for each pair of nodes in the network

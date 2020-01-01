@@ -1,26 +1,48 @@
 
-#' Title Get a one-to-many matrix of gene and GO term
+
+# get_gene_mat <- function(net_disease, GO_human) {
+    # net_genes <- union(net_disease[, 1], net_disease[, 2])
+    # aa <- which(GO_human[, 1] %in% net_genes)
+    # GO_file <- GO_human[aa, ]
+    # genes <- unique(GO_file[, 1])
+    # genes_mat <- matrix("gaga", length(genes), 3)
+
+    # genes_mat[, 1] <- genes
+    # rownames(genes_mat) <- genes_mat[, 1]
+    # for (i in seq_len(dim(GO_file)[1])) {
+        # genes_mat[GO_file[i, 1], 2] <- paste(genes_mat[GO_file[i, 1], 2],
+        # GO_file[i, 2], sep = ",")
+    # }
+
+    # for (i in seq_len(dim(genes_mat)[1])) {
+        # genes_mat[i, 2] <- sub("gaga,", "", genes_mat[i, 2])
+        # genes_mat[i, 3]<- length(unique(unlist(strsplit(genes_mat[i, 2],","))))
+    # }
+    # return(genes_mat)
+
+# }
+
+#' Get a one-to-many matrix of gene and GO term
 #'
 #' @param net_disease a disease related network, matrix
-#' @param GO_human a matrix, gene and GO terms
-#'
 #' @return a matrix
+#' @importFrom AnnotationDbi select
+#' @importFrom org.Hs.eg.db org.Hs.eg.db
 #' @export
 #'
 #' @examples
-#' get_gene_mat(net_disease,GO_human)
-get_gene_mat <- function(net_disease, GO_human) {
+#' get_gene_mat(net_disease)
+get_gene_mat <- function(net_disease, ...) {
     net_genes <- union(net_disease[, 1], net_disease[, 2])
-    aa <- which(GO_human[, 1] %in% net_genes)
-    GO_file <- GO_human[aa, ]
-    genes <- unique(GO_file[, 1])
+    GO_file <- select(org.Hs.eg.db, keys=net_genes, columns="GO", keytype="SYMBOL")
+    genes <- unique(GO_file[, "SYMBOL"])
     genes_mat <- matrix("gaga", length(genes), 3)
-
+    
     genes_mat[, 1] <- genes
     rownames(genes_mat) <- genes_mat[, 1]
     for (i in seq_len(dim(GO_file)[1])) {
-        genes_mat[GO_file[i, 1], 2] <- paste(genes_mat[GO_file[i, 1], 2],
-        GO_file[i, 2], sep = ",")
+        genes_mat[GO_file[i, "SYMBOL"], 2] <- paste(genes_mat[GO_file[i, "SYMBOL"], 2],
+        GO_file[i, "GO"], sep = ",")
     }
 
     for (i in seq_len(dim(genes_mat)[1])) {
@@ -28,32 +50,51 @@ get_gene_mat <- function(net_disease, GO_human) {
         genes_mat[i, 3]<- length(unique(unlist(strsplit(genes_mat[i, 2],","))))
     }
     return(genes_mat)
-
 }
 
-#' Title Get a one-to-many matrix of GO term and gene
+
+# get_term_mat <- function(net_disease, GO_human) {
+    # net_genes <- union(net_disease[, 1], net_disease[, 2])
+    # aa <- which(GO_human[, 1] %in% net_genes)
+    # GO_file <- GO_human[aa, ]
+    # go_terms <- unique(GO_file[, 2])
+    # terms_mat <- matrix("gaga", length(go_terms), 3)
+
+    # terms_mat[, 1] <- go_terms
+    # rownames(terms_mat) <- terms_mat[, 1]
+    # for (i in seq_len(dim(GO_file)[1])) {
+        # terms_mat[GO_file[i, 2], 2] <- paste(terms_mat[GO_file[i, 2], 2],
+        # GO_file[i, 1], sep = ",")
+    # }
+
+    # for (i in seq_len(dim(terms_mat)[1])) {
+        # terms_mat[i, 2] <- sub("gaga,", "", terms_mat[i, 2])
+        # terms_mat[i, 3] <-length(unique(unlist(strsplit(terms_mat[i, 2],","))))
+    # }
+    # return(terms_mat)
+
+# }
+
+#' Get a one-to-many matrix of GO term and gene
 #'
 #' @param net_disease a disease related network, matrix
-#' @param GO_human a matrix, gene and GO terms
-#'
 #' @return a matrix
+#' @importFrom AnnotationDbi select
+#' @importFrom org.Hs.eg.db org.Hs.eg.db
 #' @export
 #'
 #' @examples
-#' get_term_mat(net_disease,GO_human)
-get_term_mat <- function(net_disease, GO_human) {
+#' get_term_mat(net_disease)
+get_term_mat <- function(net_disease, ...) {
     net_genes <- union(net_disease[, 1], net_disease[, 2])
-    aa <- which(GO_human[, 1] %in% net_genes)
-    GO_file <- GO_human[aa, ]
-    go_terms <- unique(GO_file[, 2])
+    GO_file <- select(org.Hs.eg.db, keys=net_genes, columns="GO", keytype="SYMBOL")
+    go_terms <- unique(GO_file[, "GO"])
     terms_mat <- matrix("gaga", length(go_terms), 3)
-    terms_mat <- matrix("gaga", length(go_terms), 3)
-
     terms_mat[, 1] <- go_terms
     rownames(terms_mat) <- terms_mat[, 1]
     for (i in seq_len(dim(GO_file)[1])) {
-        terms_mat[GO_file[i, 2], 2] <- paste(terms_mat[GO_file[i, 2], 2],
-        GO_file[i, 1], sep = ",")
+        terms_mat[GO_file[i, "GO"], 2] <- paste(terms_mat[GO_file[i, "GO"], 2],
+        GO_file[i, "SYMBOL"], sep = ",")
     }
 
     for (i in seq_len(dim(terms_mat)[1])) {
@@ -61,8 +102,9 @@ get_term_mat <- function(net_disease, GO_human) {
         terms_mat[i, 3] <-length(unique(unlist(strsplit(terms_mat[i, 2],","))))
     }
     return(terms_mat)
-
 }
+
+
 
 #' Title Get the GO terms for each pair of nodes in the network
 #'

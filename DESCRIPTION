@@ -16,3 +16,6 @@ Suggests:
     rmarkdown,
     testthat
 VignetteBuilder: knitr
+Imports: 
+    AnnotationDbi,
+    org.Hs.eg.db
