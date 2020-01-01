@@ -4,7 +4,7 @@
 \alias{get_term_mat}
 \title{Get a one-to-many matrix of GO term and gene}
 \usage{
-get_term_mat(net_disease, ...)
+get_term_mat(net_disease)
 }
 \arguments{
 \item{net_disease}{a disease related network, matrix}

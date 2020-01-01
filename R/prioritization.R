@@ -89,7 +89,7 @@ get_R_0 <- function(disease_gene, node_weight, f = 1) {
 #'
 #' @examples
 #' net_disease <- deal_net(net,dise_gene)
-#' genes_mat <- get_gene_mat(net_disease,GO_human)
+#' genes_mat <- get_gene_mat(net_disease)
 #' node_weight <- get_node_weight(genes_mat)
 #' net_disease_term <- get_net_disease_term(genes_mat,net_disease)
 #' R_0<- get_R_0(dise_gene,node_weight,f=1)

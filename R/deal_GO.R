@@ -32,7 +32,7 @@
 #'
 #' @examples
 #' get_gene_mat(net_disease)
-get_gene_mat <- function(net_disease, ...) {
+get_gene_mat <- function(net_disease) {
     net_genes <- union(net_disease[, 1], net_disease[, 2])
     GO_file <- select(org.Hs.eg.db, keys=net_genes, columns="GO", keytype="SYMBOL")
     genes <- unique(GO_file[, "SYMBOL"])
@@ -41,8 +41,9 @@ get_gene_mat <- function(net_disease, ...) {
     genes_mat[, 1] <- genes
     rownames(genes_mat) <- genes_mat[, 1]
     for (i in seq_len(dim(GO_file)[1])) {
-        genes_mat[GO_file[i, "SYMBOL"], 2] <- paste(genes_mat[GO_file[i, "SYMBOL"], 2],
-        GO_file[i, "GO"], sep = ",")
+        if(!is.na(GO_file[i, "GO"]))
+            genes_mat[GO_file[i, "SYMBOL"], 2] <- paste(genes_mat[GO_file[i, "SYMBOL"], 2],
+                GO_file[i, "GO"], sep = ",")
     }
 
     for (i in seq_len(dim(genes_mat)[1])) {
@@ -85,7 +86,7 @@ get_gene_mat <- function(net_disease, ...) {
 #'
 #' @examples
 #' get_term_mat(net_disease)
-get_term_mat <- function(net_disease, ...) {
+get_term_mat <- function(net_disease) {
     net_genes <- union(net_disease[, 1], net_disease[, 2])
     GO_file <- select(org.Hs.eg.db, keys=net_genes, columns="GO", keytype="SYMBOL")
     go_terms <- unique(GO_file[, "GO"])
@@ -93,8 +94,9 @@ get_term_mat <- function(net_disease, ...) {
     terms_mat[, 1] <- go_terms
     rownames(terms_mat) <- terms_mat[, 1]
     for (i in seq_len(dim(GO_file)[1])) {
-        terms_mat[GO_file[i, "GO"], 2] <- paste(terms_mat[GO_file[i, "GO"], 2],
-        GO_file[i, "SYMBOL"], sep = ",")
+        if(!is.na(GO_file[i, "GO"]))
+            terms_mat[GO_file[i, "GO"], 2] <- paste(terms_mat[GO_file[i, "GO"], 2],
+                GO_file[i, "SYMBOL"], sep = ",")
     }
 
     for (i in seq_len(dim(terms_mat)[1])) {
