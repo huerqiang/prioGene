@@ -5,6 +5,10 @@ Erqiang Hu
 
 College of Bioinformatics Science and Technology, Harbin Medical University
 
+[![CRAN_Status_Badge](http://www.r-pkg.org/badges/version/prioGene?color=green)](https://cran.r-project.org/package=prioGene)
+![](https://cranlogs.r-pkg.org/badges/grand-total/prioGene?color=green)
+![](https://cranlogs.r-pkg.org/badges/prioGene?color=green)
+![](https://cranlogs.r-pkg.org/badges/last-week/prioGene?color=green)
 
 ## :arrow\_double\_down: Installation
 
