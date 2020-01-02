@@ -1,4 +1,4 @@
-## prioGene: Prioritize candidate genes for complex noncommunicable diseases
+## prioGene: Prioritize candidate genes for complex non-communicable diseases
 
 ## :writing_hand: Authors
 Erqiang Hu
@@ -27,67 +27,33 @@ install.packages("prioGene")
 library(prioGene)
 ```
 
-```r
-# One-step interactions with known disease-causing genes are retained in networks
-#'
-#' net: a network
-#' dise_gene: a matrix with one column of genes
-#'
-#' return: a matrix
-net_disease <- deal_net(net,dise_gene)
-```
-```r
-#Get a one-to-many matrix of gene and GO term
-#'
-#'net_disease: a disease related network, matrix
-#'
-#' return: a matrix
-genes_mat <- get_gene_mat(net_disease)
-```
-```r
-#Get a one-to-many matrix of GO term and gene
-#' net_disease: a disease related network, matrix
-#'
-#' return: a matrix
-terms_mat <- get_term_mat(net_disease)
-```
-```r
-#Get the GO term for each pair of nodes in the network
-#' genes_mat: a one-to-many matrix of GO term and gene
-#' net_disease: a disease related network, matrix
-#'
-#' return: a matrix
-net_disease_term <- get_net_disease_term(genes_mat,net_disease)
-```
+### 1. Construction of disease  related networks
+
+The function `deal_net` could get a disease related network by retaining disease-causing genes and their One-step interaction neighbors in a human biological network.
+The parameter `net` means a human biological network, a matrix of two columns. The parameter `dise_gene` means a one-column-matrix of gene symbols obtained from OMIM database or other disease related databases. They need to be provided by the users.  We provide examples separately in the package: `prioGene::net` and `prioGene::dise_gene`.
 
 ```r
-#weighting gene
-#' genes_mat: a one-to-many matrix of GO term and gene
-#'
-#' return: a matrix
-node_weight <- get_node_weight(genes_mat)
+net_disease <- deal_net(net,dise_gene)
 ```
+
+###  2.  Calculation of network weights
+
+These five functions form a pipeline to weight the nodes and edges of the network based on functional information. GO function annotation information comes from `org.Hs.eg.db`.
+
 ```r
-#weighting edge
-#' net_disease_term: GO terms for each pair of nodes in the network
-#'
-#' return: a matrix
+genes_mat <- get_gene_mat(net_disease)
+terms_mat <- get_term_mat(net_disease)
+net_disease_term <- get_net_disease_term(genes_mat,net_disease)
+node_weight <- get_node_weight(genes_mat)
 edge_weight <- get_edge_weight(net_disease_term,terms_mat)
 ```
 
+### 3.  Prioritization of candidate genes
+
+The prioritization of candidate genes was performed based on disease risk scores of each gene obtained from an iteration process considering disease risks transferred between genes.
 
 ```r
-#R—_0 is the vector of initial disease risk scores for all genes
 R_0<- get_R_0(dise_gene,node_weight,f=1)
-```
-
-```r
-#get the result the output number is the number of iterations
-#' bet:  a parameter to measure the importance of genes and interactions
-#' R_0: the vector of initial disease risk scores for all genes
-#' node_weight: a matrix, genes and their weights
-#' threshold: a threshold for terminating iterations
-#'
-#' return: a matrix
 result <- get_R(node_weight, net_disease_term, bet = 0.5, R_0 = R_0, threshold = 10^(-9))
 ```
+
