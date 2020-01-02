@@ -69,9 +69,11 @@ devtools::install_github("huerqiang/prioGene")
 
 # Common operations on prioGene
 
-```{r}
+```{r echo=FALSE, results='hide', message=FALSE}
 library(prioGene)
+```
 
+```{r}
 #One-step interactions with known disease-causing genes are retained in networks
 #'
 #' net: a network
@@ -83,6 +85,7 @@ head(dise_gene)
 net_disease <- deal_net(net,dise_gene)
 head(net_disease)
 ```
+
 ```{r}
 #Get a one-to-many matrix of gene and GO term
 #'
@@ -90,16 +93,20 @@ head(net_disease)
 #'
 #' return: a matrix
 genes_mat <- get_gene_mat(net_disease)
+genes_mat <- as.matrix(genes_mat)
 head(genes_mat)
 ```
+
 ```{r}
 #  Get a one-to-many matrix of GO term and gene
 #' net_disease: a disease related network, matrix
 #'
 #' return: a matrix
 terms_mat <- get_term_mat(net_disease)
+terms_mat <- as.matrix(terms_mat)
 head(terms_mat)
 ```
+
 ```{r}
 #Get the GO term for each pair of nodes in the network
 #' genes_mat: a one-to-many matrix of GO term and gene
@@ -118,6 +125,7 @@ head(net_disease_term)
 node_weight <- get_node_weight(genes_mat)
 head(node_weight)
 ```
+
 ```{r}
 #weighting edge
 #' net_disease_term: GO terms for each pair of nodes in the network
@@ -135,8 +143,7 @@ head(R_0)
 ```
 
 ```{r}
-#get the result the output number is the number of iterations
-#' Q:  the disease risk transition probability matrix
+#  get the result the output number is the number of iterations
 #' bet:  a parameter to measure the importance of genes and interactions
 #' R_0: the vector of initial disease risk scores for all genes
 #' node_weight: a matrix, genes and their weights

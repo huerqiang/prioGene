@@ -4,7 +4,7 @@
 \name{edge_weight}
 \alias{edge_weight}
 \title{weights of edges of a net}
-\format{A matrix with 25 rows and 3 column}
+\format{A matrix with 25 rows and 3 columns}
 \usage{
 edge_weight
 }

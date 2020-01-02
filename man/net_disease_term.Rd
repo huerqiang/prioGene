@@ -4,7 +4,7 @@
 \name{net_disease_term}
 \alias{net_disease_term}
 \title{GO terms for each pair of nodes in the network}
-\format{A matrix with 25 rows and 4 column}
+\format{A matrix with 25 rows and 4 columns}
 \usage{
 net_disease_term
 }

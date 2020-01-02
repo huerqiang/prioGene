@@ -4,7 +4,7 @@
 \name{net_disease}
 \alias{net_disease}
 \title{a network of disease related genes}
-\format{A matrix with 26 rows and 2 column}
+\format{A matrix with 26 rows and 2 columns}
 \usage{
 net_disease
 }

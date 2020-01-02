@@ -4,7 +4,7 @@
 \name{terms_mat}
 \alias{terms_mat}
 \title{a matrix, GO terms and GO genes}
-\format{A matrix with 1172 rows and 3 column}
+\format{A matrix with 1172 rows and 3 columns}
 \usage{
 terms_mat
 }

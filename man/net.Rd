@@ -4,7 +4,7 @@
 \name{net}
 \alias{net}
 \title{a network of genes}
-\format{A matrix with 2000 rows and 2 column}
+\format{A matrix with 2000 rows and 2 columns}
 \usage{
 net
 }

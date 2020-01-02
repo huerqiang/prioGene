@@ -4,7 +4,7 @@
 \name{node_weight}
 \alias{node_weight}
 \title{a matrix, genes and their weights}
-\format{A matrix with 45 rows and 2 column}
+\format{A matrix with 45 rows and 2 columns}
 \usage{
 node_weight
 }

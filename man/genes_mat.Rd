@@ -4,7 +4,7 @@
 \name{genes_mat}
 \alias{genes_mat}
 \title{a one-to-many matrix of GO term and gene}
-\format{A matrix with 45 rows and 3 column}
+\format{A matrix with 45 rows and 3 columns}
 \usage{
 genes_mat
 }
