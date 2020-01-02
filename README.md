@@ -5,7 +5,6 @@ Erqiang Hu
 
 College of Bioinformatics Science and Technology, Harbin Medical University
 
-1
 
 ## :arrow\_double\_down: Installation
 
