@@ -1,11 +1,11 @@
 ## prioGene: Prioritize candidate genes for complex noncommunicable diseases
 
-## Authors
+## :writing_hand: Authors
 Erqiang Hu
 
 College of Bioinformatics Science and Technology, Harbin Medical University
 
-
+1
 
 ## :arrow\_double\_down: Installation
 
