@@ -33,8 +33,8 @@ library(prioGene)
 
 ### 1. Construction of disease  related networks
 
-The function `deal_net` could get a disease related network by retaining disease-causing genes and their One-step interaction neighbors in a human biological network.
-The parameter `net` means a human biological network, a matrix of two columns. The parameter `dise_gene` means a one-column-matrix of gene symbols obtained from OMIM database or other disease related databases. They need to be provided by the users.  We provide examples separately in the package: `prioGene::net` and `prioGene::dise_gene`.
+The function `deal_net` could get a disease-related network by retaining disease-causing genes and their One-step interaction neighbors in a human biological network.
+The parameter `net` means a human biological network, a matrix of two columns. The parameter `dise_gene` means a one-column-matrix of gene symbols obtained from the OMIM database or other disease-related databases. They need to be provided by the users.  We provide examples separately in the package: `prioGene::net` and `prioGene::dise_gene`.
 
 ```r
 net_disease <- deal_net(net,dise_gene)
