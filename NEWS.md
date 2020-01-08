@@ -1,2 +1,4 @@
-Changes in version 0.99.0 (2019-07-10)
-+ Submitted to Bioconductor
+# prioGene 1.0.0
++ fix some bugs
++ imports AnnotationDbi, org.Hs.eg.db
+

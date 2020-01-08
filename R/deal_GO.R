@@ -50,6 +50,7 @@ get_gene_mat <- function(net_disease) {
         genes_mat[i, 2] <- sub("gaga,", "", genes_mat[i, 2])
         genes_mat[i, 3]<- length(unique(unlist(strsplit(genes_mat[i, 2],","))))
     }
+    genes_mat <- genes_mat[which(genes_mat[,2] != "gaga"),]
     return(genes_mat)
 }
 
@@ -103,6 +104,7 @@ get_term_mat <- function(net_disease) {
         terms_mat[i, 2] <- sub("gaga,", "", terms_mat[i, 2])
         terms_mat[i, 3] <-length(unique(unlist(strsplit(terms_mat[i, 2],","))))
     }
+    terms_mat <- terms_mat[which(terms_mat[,2] != "gaga"),]
     return(terms_mat)
 }
 
